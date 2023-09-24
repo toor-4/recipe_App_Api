@@ -7,13 +7,14 @@ services:
       args:
         - DEV=true
     ports:
-      - "8000:8000"
+      - "8300:8000"
     volumes:
       - ./recipeApi:/app     # allow sharing of files locally(laptop) and the container
     command: >
       sh -c "python manage.py wait_for_db &&
              python manage.py migrate &&
              python manage.py runserver 0.0.0.0:8000"
+
 
     environment:
       - DB_HOST=db
