@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'drf_spectacular',
     'app',
 ]
 
@@ -127,3 +130,17 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'app.User'
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+# Log all SQL
+# LOGGING = {
+#     "version": 1,
+#     "handlers": {"console": {"class": "logging.StreamHandler"}},
+#     "loggers": {"django.db.backends": {"level": "DEBUG"}},
+#     "root": {"handlers": ["console"]},
+# }
